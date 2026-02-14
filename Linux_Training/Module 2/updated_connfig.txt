@@ -1,0 +1,5 @@
+server_name = 127.0.0.1
+listen 80
+db_host = 127.0.0.1
+log_host = 127.0.0.1
+cache_server=127.0.0.1

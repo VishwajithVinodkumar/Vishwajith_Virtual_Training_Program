@@ -1,0 +1,5 @@
+server_name = localhost
+listen 80
+db_host = localhost
+log_host = localhost
+cache_server=localhost
