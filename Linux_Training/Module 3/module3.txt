@@ -1,0 +1,74 @@
+Name : Vishwajith V
+College : Thiagarajar College of Engineering
+Department : Computer Science And Business Systems
+
+Scenario:
+ Automating file backup and reporting to the system. Create a shell script called backup_manager.sh that performs the following tasks incorporating the concepts suggested.
+ 
+Requirements:
+
+1. Command-line Arguments and Quoting:
+
+The script must accept three arguments:
+
+Source directory: A directory containing files to back up.
+Backup directory: The destination where files will be backed up.
+File extension: A specific file extension to filter (e.g., .txt).
+
+./backup_manager.sh "/home/user/source" "/backup" ".txt"
+
+2. Globbing:
+ The script should use globbing to find all files in the source directory matching the provided file extension.
+ 
+3. Export Statements:
+ Use export to set an environment variable BACKUP_COUNT, which tracks the total number of files backed up during the script execution.
+ 
+4. Array Operations:
+ Store the list of files to be backed up in an array.
+ Print the names of these files along with their sizes before performing the backup.
+ 
+5. Conditional Execution:
+If the backup directory does not exist, create it. If creation fails, exit with an error.
+If the source directory is empty or contains no files matching the extension, exit with a message.
+If a file already exists in the backup directory with the same name, only overwrite it if it is older than the source file (compare timestamps).
+
+6. Output Report:
+
+After the backup, generate a summary report displaying:
+
+Total files processed.
+Total size of files backed up.
+The path to the backup directory.
+The report should be saved in the backup directory as backup_report.log
+
+
+COMMANDS: 
+
+boss@boss:~/Documents$ chmod +x ./backup_manager.sh
+boss@boss:~/Documents$ ls dir1
+f1.txt  f2.txt  f3.txt  file_link.txt  filtered_log.txt  large.txt  new_config.txt
+boss@boss:~/Documents$ ./backup_manager.sh dir1 dir2
+Usage: ./backup_manager.sh <source_directory> <backup_directory> <file_extension>
+boss@boss:~/Documents$ ./backup_manager.sh dir1 dir2 .txt
+Processing f1.txt (0 bytes)
+Copying dir1/f1.txt to dir2/f1.txt.
+Processing f2.txt (0 bytes)
+Copying dir1/f2.txt to dir2/f2.txt.
+Processing f3.txt (0 bytes)
+Copying dir1/f3.txt to dir2/f3.txt.
+Processing file_link.txt (16 bytes)
+Copying dir1/file_link.txt to dir2/file_link.txt.
+Processing filtered_log.txt (727 bytes)
+Copying dir1/filtered_log.txt to dir2/filtered_log.txt.
+Processing large.txt (14 bytes)
+Copying dir1/large.txt to dir2/large.txt.
+Processing new_config.txt (98 bytes)
+Copying dir1/new_config.txt to dir2/new_config.txt.
+Backup Report - Tue Feb 10 10:54:54 AM IST 2026
+------------------------------------
+Source Directory: dir1
+Backup Directory: dir2
+Total Files Processed: 7
+Total Size of Files Backed Up: 855 bytes
+
+
