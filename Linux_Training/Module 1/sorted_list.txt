@@ -1,0 +1,5 @@
+total 0
+-rw-r--r-- 1 boss boss 0 Feb  9 13:27 sorted_list.txt
+-rw-r--r-- 1 boss boss 0 Feb  9 13:26 f3.txt
+-rw-r--r-- 1 boss boss 0 Feb  9 13:26 f2.txt
+-rw-r--r-- 1 boss boss 0 Feb  9 13:26 f1.txt

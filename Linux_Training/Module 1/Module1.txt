@@ -1,0 +1,344 @@
+Name : Vishwajith V
+College : Thiagarajar College of Engineering
+Department : Computer Science And Business Systems
+
+1) Create a file and add executable permission to all users (user, group, others)
+
+boss@boss:~/Documents$ touch file1.sh
+boss@boss:~/Documents$ chmod a+x file1.sh
+boss@boss:~/Documents$ ls
+dir1  dir2  file1.sh  Module1.txt  test2.sh  test.sh
+
+
+2) Create a file and remove write permission for group user alone
+
+boss@boss:~/Documents$ touch file2.sh
+boss@boss:~/Documents$ chmod g-w file2.sh
+boss@boss:~/Documents$ ls
+dir1  dir2  file1.sh  file2.sh  Module1.txt  test2.sh  test.sh
+
+
+3) Create a file and add a soft link in a different directory
+
+boss@boss:~/Documents$ ~mkdir -p dir1 dir2
+bash: ~mkdir: command not found
+boss@boss:~/Documents$ mkdir -p dir1 dir2
+boss@boss:~/Documents$ touch dir2/file.txt
+boss@boss:~/Documents$ ln -s ../dir2/file.txt dir1/file_link.txt
+boss@boss:~/Documents$ ls -l dir1
+total 0
+lrwxrwxrwx 1 boss boss 16 Feb  9 13:07 file_link.txt -> ../dir2/file.txt
+
+
+4)Use ps command with options to display all active processes
+
+boss@boss:~/Documents$ ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 12:52 ?        00:00:01 /sbin/init splash
+root           2       0  0 12:52 ?        00:00:00 [kthreadd]
+root           3       2  0 12:52 ?        00:00:00 [pool_workqueue_release]
+root           4       2  0 12:52 ?        00:00:00 [kworker/R-kvfree_rcu_reclai
+root           5       2  0 12:52 ?        00:00:00 [kworker/R-rcu_gp]
+root           6       2  0 12:52 ?        00:00:00 [kworker/R-sync_wq]
+root           7       2  0 12:52 ?        00:00:00 [kworker/R-slub_flushwq]
+root           8       2  0 12:52 ?        00:00:00 [kworker/R-netns]
+root           9       2  0 12:52 ?        00:00:00 [kworker/0:0-events]
+root          11       2  0 12:52 ?        00:00:00 [kworker/0:0H-events_highpri
+root          12       2  0 12:52 ?        00:00:05 [kworker/u32:0-gfx_0.0.0]
+root          13       2  0 12:52 ?        00:00:00 [kworker/R-mm_percpu_wq]
+root          14       2  0 12:52 ?        00:00:00 [rcu_tasks_kthread]
+root          15       2  0 12:52 ?        00:00:00 [rcu_tasks_rude_kthread]
+root          16       2  0 12:52 ?        00:00:00 [rcu_tasks_trace_kthread]
+root          17       2  0 12:52 ?        00:00:00 [ksoftirqd/0]
+root          18       2  0 12:52 ?        00:00:01 [rcu_preempt]
+root          19       2  0 12:52 ?        00:00:00 [rcu_exp_par_gp_kthread_work
+root          20       2  0 12:52 ?        00:00:00 [rcu_exp_gp_kthread_worker]
+root          21       2  0 12:52 ?        00:00:00 [migration/0]
+root          22       2  0 12:52 ?        00:00:00 [idle_inject/0]
+root          23       2  0 12:52 ?        00:00:00 [cpuhp/0]
+root          24       2  0 12:52 ?        00:00:00 [cpuhp/2]
+root          25       2  0 12:52 ?        00:00:00 [idle_inject/2]
+root          26       2  0 12:52 ?        00:00:00 [migration/2]
+root          27       2  0 12:52 ?        00:00:00 [ksoftirqd/2]
+root          29       2  0 12:52 ?        00:00:00 [kworker/2:0H-events_highpri
+root          30       2  0 12:52 ?        00:00:00 [cpuhp/4]
+root          31       2  0 12:52 ?        00:00:00 [idle_inject/4]
+root          32       2  0 12:52 ?        00:00:00 [migration/4]
+root          33       2  0 12:52 ?        00:00:00 [ksoftirqd/4]
+root          35       2  0 12:52 ?        00:00:00 [kworker/4:0H-events_highpri
+root          36       2  0 12:52 ?        00:00:00 [cpuhp/6]
+root          37       2  0 12:52 ?        00:00:00 [idle_inject/6]
+root          38       2  0 12:52 ?        00:00:00 [migration/6]
+root          39       2  0 12:52 ?        00:00:00 [ksoftirqd/6]
+root          41       2  0 12:52 ?        00:00:00 [kworker/6:0H-events_highpri
+root          42       2  0 12:52 ?        00:00:00 [cpuhp/1]
+root          43       2  0 12:52 ?        00:00:00 [idle_inject/1]
+root          44       2  0 12:52 ?        00:00:00 [migration/1]
+root          45       2  0 12:52 ?        00:00:00 [ksoftirqd/1]
+root          46       2  0 12:52 ?        00:00:00 [kworker/1:0-cgroup_destroy]
+root          47       2  0 12:52 ?        00:00:00 [kworker/1:0H-events_highpri
+root          48       2  0 12:52 ?        00:00:00 [cpuhp/3]
+root          49       2  0 12:52 ?        00:00:00 [idle_inject/3]
+root          50       2  0 12:52 ?        00:00:00 [migration/3]
+root          51       2  0 12:52 ?        00:00:00 [ksoftirqd/3]
+root          53       2  0 12:52 ?        00:00:00 [kworker/3:0H-events_highpri
+root          54       2  0 12:52 ?        00:00:00 [cpuhp/5]
+root          55       2  0 12:52 ?        00:00:00 [idle_inject/5]
+root          56       2  0 12:52 ?        00:00:00 [migration/5]
+root          57       2  0 12:52 ?        00:00:00 [ksoftirqd/5]
+root          59       2  0 12:52 ?        00:00:00 [kworker/5:0H-events_highpri
+root          60       2  0 12:52 ?        00:00:00 [cpuhp/7]
+root          61       2  0 12:52 ?        00:00:00 [idle_inject/7]
+root          62       2  0 12:52 ?        00:00:00 [migration/7]
+root          63       2  0 12:52 ?        00:00:00 [ksoftirqd/7]
+root          65       2  0 12:52 ?        00:00:00 [kworker/7:0H-events_highpri
+root          67       2  0 12:52 ?        00:00:04 [kworker/u32:1-gfx_0.0.0]
+root          72       2  0 12:52 ?        00:00:00 [kdevtmpfs]
+root          73       2  0 12:52 ?        00:00:00 [kworker/R-inet_frag_wq]
+root          74       2  0 12:52 ?        00:00:00 [kauditd]
+root          75       2  0 12:52 ?        00:00:00 [khungtaskd]
+root          76       2  0 12:52 ?        00:00:00 [oom_reaper]
+root          77       2  0 12:52 ?        00:00:00 [kworker/R-writeback]
+root          78       2  0 12:52 ?        00:00:00 [kcompactd0]
+root          79       2  0 12:52 ?        00:00:00 [ksmd]
+root          80       2  0 12:52 ?        00:00:00 [khugepaged]
+root          81       2  0 12:52 ?        00:00:00 [kworker/R-kintegrityd]
+root          82       2  0 12:52 ?        00:00:00 [kworker/R-kblockd]
+root          83       2  0 12:52 ?        00:00:00 [kworker/R-blkcg_punt_bio]
+root          84       2  0 12:52 ?        00:00:00 [irq/9-acpi]
+root          86       2  0 12:52 ?        00:00:00 [kworker/R-tpm_dev_wq]
+root          87       2  0 12:52 ?        00:00:00 [kworker/R-edac-poller]
+root          88       2  0 12:52 ?        00:00:00 [kworker/R-devfreq_wq]
+root          89       2  0 12:52 ?        00:00:00 [kworker/0:1H-kblockd]
+root          90       2  0 12:52 ?        00:00:00 [irq/25-AMD-Vi]
+root          91       2  0 12:52 ?        00:00:00 [kworker/3:1-events]
+root          92       2  0 12:52 ?        00:00:00 [kswapd0]
+root         100       2  0 12:52 ?        00:00:00 [kworker/R-kthrotld]
+root         105       2  0 12:52 ?        00:00:00 [kworker/R-acpi_thermal_pm]
+root         107       2  0 12:52 ?        00:00:00 [kworker/R-mld]
+root         108       2  0 12:52 ?        00:00:00 [kworker/R-ipv6_addrconf]
+root         110       2  0 12:52 ?        00:00:00 [kworker/2:1H-acpi_thermal_p
+root         114       2  0 12:52 ?        00:00:00 [kworker/R-kstrp]
+root         121       2  0 12:52 ?        00:00:00 [kworker/R-cryptd]
+root         133       2  0 12:52 ?        00:00:00 [kworker/5:1-events]
+root         163       2  0 12:52 ?        00:00:04 [kworker/u32:8+events_unboun
+root         167       2  0 12:52 ?        00:00:04 [kworker/u32:9-gfx_0.0.0]
+root         226       2  0 12:52 ?        00:00:00 [irq/26-ACPI:Event]
+root         227       2  0 12:52 ?        00:00:00 [irq/27-ACPI:Event]
+root         228       2  0 12:52 ?        00:00:00 [irq/28-ACPI:Event]
+root         229       2  0 12:52 ?        00:00:00 [irq/29-ACPI:Event]
+root         230       2  0 12:52 ?        00:00:00 [irq/30-ACPI:Event]
+root         231       2  0 12:52 ?        00:00:00 [irq/31-ACPI:Event]
+root         232       2  0 12:52 ?        00:00:00 [kworker/4:1-events]
+root         271       2  0 12:52 ?        00:00:00 [kworker/7:1H-kblockd]
+root         272       2  0 12:52 ?        00:00:00 [kworker/4:1H-kblockd]
+root         273       2  0 12:52 ?        00:00:00 [kworker/5:1H-kblockd]
+root         274       2  0 12:52 ?        00:00:00 [kworker/3:1H-acpi_thermal_p
+root         275       2  0 12:52 ?        00:00:00 [kworker/1:1H-kblockd]
+root         288       2  0 12:52 ?        00:00:00 [kworker/6:1H-acpi_thermal_p
+root         315       2  0 12:52 ?        00:00:00 [kworker/R-nvme-wq]
+root         316       2  0 12:52 ?        00:00:00 [kworker/R-nvme-reset-wq]
+root         317       2  0 12:52 ?        00:00:00 [kworker/R-nvme-delete-wq]
+root         318       2  0 12:52 ?        00:00:00 [kworker/R-nvme-auth-wq]
+root         325       2  0 12:52 ?        00:00:03 [irq/36-SYNA32D9:00]
+root         326       2  0 12:52 ?        00:00:00 [kworker/2:2-events]
+root         336       2  0 12:52 ?        00:00:00 [kworker/3:2-cgroup_destroy]
+root         340       2  0 12:52 ?        00:00:00 [kworker/R-amdgpu-reset-dev]
+root         341       2  0 12:52 ?        00:00:00 [kworker/R-ttm]
+root         342       2  0 12:52 ?        00:00:00 [kworker/R-amdgpu_dm_hpd_rx_
+root         343       2  0 12:52 ?        00:00:00 [kworker/R-amdgpu_dm_hpd_rx_
+root         344       2  0 12:52 ?        00:00:00 [kworker/R-amdgpu_dm_hpd_rx_
+root         345       2  0 12:52 ?        00:00:00 [kworker/R-amdgpu_dm_hpd_rx_
+root         346       2  0 12:52 ?        00:00:00 [kworker/R-amdgpu_dm_hpd_rx_
+root         347       2  0 12:52 ?        00:00:00 [kworker/R-dm_vblank_control
+root         348       2  0 12:52 ?        00:00:00 [card0-crtc0]
+root         349       2  0 12:52 ?        00:00:00 [card0-crtc1]
+root         350       2  0 12:52 ?        00:00:00 [card0-crtc2]
+root         351       2  0 12:52 ?        00:00:00 [card0-crtc3]
+root         352       2  0 12:52 ?        00:00:00 [kworker/R-gfx_0.0.0]
+root         353       2  0 12:52 ?        00:00:00 [kworker/R-gfx_0.1.0]
+root         354       2  0 12:52 ?        00:00:00 [kworker/R-comp_1.0.0]
+root         355       2  0 12:52 ?        00:00:00 [kworker/R-comp_1.1.0]
+root         356       2  0 12:52 ?        00:00:00 [kworker/R-comp_1.2.0]
+root         357       2  0 12:52 ?        00:00:00 [kworker/R-comp_1.3.0]
+root         358       2  0 12:52 ?        00:00:00 [kworker/R-comp_1.0.1]
+root         359       2  0 12:52 ?        00:00:00 [kworker/R-comp_1.1.1]
+root         360       2  0 12:52 ?        00:00:00 [kworker/R-comp_1.2.1]
+root         361       2  0 12:52 ?        00:00:00 [kworker/R-comp_1.3.1]
+root         362       2  0 12:52 ?        00:00:00 [kworker/R-sdma0]
+root         363       2  0 12:52 ?        00:00:00 [kworker/R-vcn_dec_0]
+root         364       2  0 12:52 ?        00:00:00 [kworker/R-vcn_enc_0.0]
+root         365       2  0 12:52 ?        00:00:00 [kworker/R-vcn_enc_0.1]
+root         366       2  0 12:52 ?        00:00:00 [kworker/R-jpeg_dec]
+root         375       2  0 12:52 ?        00:00:00 [kworker/u33:1-ttm]
+root         415       2  0 12:52 ?        00:00:00 [jbd2/nvme0n1p6-8]
+root         416       2  0 12:52 ?        00:00:00 [kworker/R-ext4-rsv-conversi
+root         470       1  0 12:52 ?        00:00:00 /lib/systemd/systemd-journal
+root         497       1  0 12:52 ?        00:00:00 /lib/systemd/systemd-udevd
+root         543       2  0 12:52 ?        00:00:00 [watchdogd]
+root         565       2  0 12:52 ?        00:00:00 [kworker/R-cfg80211]
+root         600       2  0 12:52 ?        00:00:00 [kworker/7:2-cgroup_destroy]
+root         622       2  1 12:52 ?        00:00:12 [irq/81-rtw89_pci]
+root         663       1  0 12:52 ?        00:00:00 /usr/libexec/accounts-daemon
+root         665       1  0 12:52 ?        00:00:00 /usr/sbin/acpi_fakekeyd -f
+root         695       1  0 12:52 ?        00:00:00 /usr/sbin/acpid
+avahi        716       1  0 12:52 ?        00:00:00 avahi-daemon: running [boss.
+root         718       1  0 12:52 ?        00:00:00 /usr/libexec/bluetooth/bluet
+root         719       1  0 12:52 ?        00:00:00 /usr/sbin/cron -f
+message+     720       1  0 12:52 ?        00:00:00 /usr/bin/dbus-daemon --syste
+avahi        722     716  0 12:52 ?        00:00:00 avahi-daemon: chroot helper
+root         726       1  0 12:52 ?        00:00:00 /usr/libexec/low-memory-moni
+daemon       727       1  0 12:52 ?        00:00:00 /usr/sbin/nss-tlsd
+polkitd      729       1  0 12:52 ?        00:00:00 /usr/lib/polkit-1/polkitd --
+root         730       1  0 12:52 ?        00:00:00 /usr/libexec/power-profiles-
+root         732       1  0 12:52 ?        00:00:00 /lib/systemd/systemd-logind
+root         734       1  0 12:52 ?        00:00:00 /usr/libexec/udisks2/udisksd
+root         741       2  0 12:52 ?        00:00:00 [psimon]
+root         750       1  0 12:52 ?        00:00:02 /usr/sbin/NetworkManager --n
+root         752       1  0 12:52 ?        00:00:08 /sbin/wpa_supplicant -u -s -
+root         793       2  0 12:52 ?        00:00:00 [kworker/6:2-mm_percpu_wq]
+root         822       1  0 12:52 ?        00:00:00 /usr/sbin/ModemManager
+root         824       1  0 12:52 ?        00:00:00 /usr/sbin/cupsd -l
+root         832       1  0 12:52 ?        00:00:00 /usr/sbin/lightdm
+root         841       1  0 12:52 ?        00:00:00 sshd: /usr/sbin/sshd -D [lis
+root         852     832  5 12:52 tty7     00:00:47 /usr/lib/xorg/Xorg :0 -seat 
+rtkit        903       1  0 12:52 ?        00:00:00 /usr/libexec/rtkit-daemon
+root        1000       2  0 12:52 ?        00:00:00 [krfcommd]
+root        1057       1  0 12:52 ?        00:00:00 /usr/libexec/upowerd
+root        1076     832  0 12:52 ?        00:00:00 lightdm --session-child 13 2
+root        1119       1  0 12:52 ?        00:00:00 /usr/sbin/cups-browsed
+root        1202       1  0 12:53 tty1     00:00:00 /sbin/agetty -o -p -- \u --n
+boss        1209       1  0 12:53 ?        00:00:00 /lib/systemd/systemd --user
+boss        1210    1209  0 12:53 ?        00:00:00 (sd-pam)
+boss        1225    1209  0 12:53 ?        00:00:06 /usr/sbin/nss-tlsd -c
+boss        1226    1209  0 12:53 ?        00:00:00 /usr/bin/pipewire
+boss        1229    1209  0 12:53 ?        00:00:00 /usr/bin/wireplumber
+boss        1230    1209  0 12:53 ?        00:00:00 /usr/bin/pipewire-pulse
+boss        1232    1209  0 12:53 ?        00:00:00 /usr/bin/gnome-keyring-daemo
+boss        1233    1209  0 12:53 ?        00:00:00 /usr/bin/dbus-daemon --sessi
+boss        1238    1209  0 12:53 ?        00:00:00 /usr/libexec/gvfsd
+boss        1249    1209  0 12:53 ?        00:00:00 /usr/libexec/gvfsd-fuse /run
+boss        1251    1076  0 12:53 ?        00:00:00 x-session-manager
+boss        1378    1251  0 12:53 ?        00:00:00 /usr/bin/ssh-agent /usr/bin/
+boss        1395       1  0 12:53 ?        00:00:01 /usr/bin/ibus-daemon --daemo
+boss        1402    1395  0 12:53 ?        00:00:00 /usr/libexec/ibus-memconf
+boss        1403    1395  0 12:53 ?        00:00:00 /usr/libexec/ibus-ui-gtk3
+boss        1404    1395  0 12:53 ?        00:00:01 /usr/libexec/ibus-extension-
+boss        1405    1209  0 12:53 ?        00:00:00 /usr/libexec/at-spi-bus-laun
+boss        1408       1  0 12:53 ?        00:00:00 /usr/libexec/ibus-x11 --kill
+boss        1411    1209  0 12:53 ?        00:00:00 /usr/libexec/ibus-portal
+boss        1427    1405  0 12:53 ?        00:00:00 /usr/bin/dbus-daemon --confi
+boss        1430    1209  0 12:53 ?        00:00:00 /usr/libexec/at-spi2-registr
+boss        1431    1209  0 12:53 ?        00:00:00 /usr/libexec/xdg-desktop-por
+boss        1438    1209  0 12:53 ?        00:00:00 /usr/libexec/xdg-document-po
+boss        1443    1209  0 12:53 ?        00:00:00 /usr/libexec/xdg-permission-
+boss        1444    1209  0 12:53 ?        00:00:00 /usr/libexec/tracker-miner-f
+root        1450    1438  0 12:53 ?        00:00:00 fusermount3 -o rw,nosuid,nod
+boss        1454    1209  0 12:53 ?        00:00:00 /usr/libexec/xdg-desktop-por
+boss        1462    1395  0 12:53 ?        00:00:00 /usr/libexec/ibus-engine-sim
+boss        1473    1209  0 12:53 ?        00:00:00 /usr/libexec/gvfs-udisks2-vo
+boss        1486    1209  0 12:53 ?        00:00:00 /usr/libexec/gvfs-gphoto2-vo
+boss        1490    1209  0 12:53 ?        00:00:00 /usr/libexec/gvfs-afc-volume
+boss        1495    1209  0 12:53 ?        00:00:00 /usr/libexec/gvfs-mtp-volume
+boss        1499    1209  0 12:53 ?        00:00:00 /usr/libexec/gvfs-goa-volume
+boss        1503    1209  0 12:53 ?        00:00:00 /usr/libexec/goa-daemon
+boss        1511    1209  0 12:53 ?        00:00:00 /usr/libexec/goa-identity-se
+boss        1528    1251  0 12:53 ?        00:00:00 csd-automount
+boss        1533    1251  0 12:53 ?        00:00:00 csd-wacom
+boss        1536    1251  0 12:53 ?        00:00:00 csd-background
+boss        1537    1251  0 12:53 ?        00:00:00 csd-a11y-settings
+boss        1540    1251  0 12:53 ?        00:00:00 csd-keyboard
+boss        1541    1251  0 12:53 ?        00:00:00 csd-xsettings
+boss        1544    1251  0 12:53 ?        00:00:00 csd-color
+boss        1554    1251  0 12:53 ?        00:00:00 csd-media-keys
+boss        1555    1251  0 12:53 ?        00:00:00 csd-screensaver-proxy
+boss        1558    1251  0 12:53 ?        00:00:00 csd-power
+boss        1559    1251  0 12:53 ?        00:00:00 /usr/lib/x86_64-linux-gnu/ci
+boss        1563    1251  0 12:53 ?        00:00:00 csd-housekeeping
+boss        1568    1251  0 12:53 ?        00:00:00 csd-clipboard
+boss        1576    1209  0 12:53 ?        00:00:00 /usr/libexec/dconf-service
+colord      1582       1  0 12:53 ?        00:00:00 /usr/libexec/colord
+boss        1620       1  0 12:53 ?        00:00:00 /usr/lib/x86_64-linux-gnu/ci
+boss        1628    1251  0 12:53 ?        00:00:00 cinnamon-launcher
+boss        1632    1628 10 12:53 ?        00:01:37 cinnamon --replace
+boss        1661    1251  0 12:53 ?        00:00:00 /usr/libexec/xapps/sn-watche
+boss        1677    1251  0 12:53 ?        00:00:00 /usr/libexec/evolution-data-
+boss        1680    1251  0 12:53 ?        00:00:00 /usr/libexec/geoclue-2.0/dem
+boss        1689    1251  0 12:53 ?        00:00:00 nemo-desktop
+boss        1694    1251  0 12:53 ?        00:00:00 python3 /usr/local/bin/varni
+boss        1699    1251  0 12:53 ?        00:00:01 nm-applet
+boss        1702    1251  0 12:53 ?        00:00:00 cinnamon-killer-daemon
+boss        1703    1251  0 12:53 ?        00:00:00 /usr/bin/python3 /usr/bin/bl
+boss        1711    1251  0 12:53 ?        00:00:00 /usr/lib/policykit-1-gnome/p
+boss        1761    1209  0 12:53 ?        00:00:00 /usr/libexec/evolution-sourc
+boss        1787    1238  0 12:53 ?        00:00:00 /usr/libexec/gvfsd-trash --s
+boss        1821    1209  0 12:53 ?        00:00:00 /usr/libexec/gvfsd-metadata
+boss        1850    1209  0 12:53 ?        00:00:00 /usr/libexec/bluetooth/obexd
+boss        1852       1  0 12:53 ?        00:00:01 /usr/bin/python3 /usr/bin/bl
+boss        1866    1209  0 12:53 ?        00:00:00 /usr/libexec/evolution-calen
+boss        1885    1209  0 12:53 ?        00:00:00 /usr/libexec/evolution-addre
+boss        2009    1209  0 12:53 ?        00:00:01 /usr/libexec/gnome-terminal-
+boss        2048    2009  0 12:53 pts/1    00:00:00 bash
+boss        2059    1395  0 12:53 ?        00:00:00 /usr/libexec/ibus-engine-m17
+boss        2065    1251  0 12:53 ?        00:00:00 /usr/bin/python3 /usr/share/
+boss        2087    1632 24 12:54 ?        00:03:29 /usr/lib/firefox-esr/firefox
+boss        2093       1  0 12:54 ?        00:00:00 /usr/lib/firefox-esr/crashhe
+boss        2175    2087  0 12:54 ?        00:00:00 /usr/lib/firefox-esr/firefox
+boss        2197    2087  0 12:54 ?        00:00:06 /usr/lib/firefox-esr/firefox
+boss        2203    2087  0 12:54 ?        00:00:00 /usr/lib/firefox-esr/firefox
+boss        2275    2087  0 12:54 ?        00:00:00 /usr/lib/firefox-esr/firefox
+boss        2330    2087  0 12:54 ?        00:00:00 /usr/lib/firefox-esr/firefox
+boss        2334    2087  4 12:54 ?        00:00:33 /usr/lib/firefox-esr/firefox
+boss        2345    2087  0 12:54 ?        00:00:02 /usr/lib/firefox-esr/firefox
+boss        2350    2087  1 12:54 ?        00:00:10 /usr/lib/firefox-esr/firefox
+root        2504       2  0 12:54 ?        00:00:00 [kworker/u33:5-ttm]
+boss        2535    2087  6 12:54 ?        00:00:52 /usr/lib/firefox-esr/firefox
+root        2570       2  0 12:55 ?        00:00:00 [kworker/u33:6-rtw89_tx_wq]
+root        2572       2  0 12:55 ?        00:00:00 [kworker/u33:8-ttm]
+root        2584       2  0 12:55 ?        00:00:00 [kworker/u33:12-ttm]
+boss        2595    2087  0 12:55 ?        00:00:00 /usr/lib/firefox-esr/firefox
+boss        2675    2087  0 12:55 ?        00:00:04 /usr/lib/firefox-esr/firefox
+boss        2761    2087  0 12:55 ?        00:00:02 /usr/lib/firefox-esr/firefox
+boss        2967    2087  9 12:56 ?        00:01:08 /usr/lib/firefox-esr/firefox
+boss        3007    1209  0 12:56 ?        00:00:01 /usr/bin/gnome-screenshot --
+boss        3030    1238  0 12:56 ?        00:00:00 /usr/libexec/gvfsd-network -
+boss        3046    1238  0 12:56 ?        00:00:00 /usr/libexec/gvfsd-dnssd --s
+root        3350       2  0 12:58 ?        00:00:00 [kworker/0:1-events]
+root        3444       2  0 12:58 ?        00:00:00 [kworker/4:3-events]
+root        3448       2  0 12:59 ?        00:00:00 [kworker/2:0-events]
+root        3679       2  0 13:01 ?        00:00:00 [kworker/u33:0-ttm]
+root        3680       2  0 13:01 ?        00:00:00 [kworker/u33:2-ttm]
+root        3682       2  0 13:01 ?        00:00:00 [kworker/6:1-events]
+root        3721       2  0 13:01 ?        00:00:00 [kworker/5:0-cgroup_destroy]
+boss        3764    1209  1 13:02 ?        00:00:04 /usr/bin/gedit --gapplicatio
+root        3797       2  0 13:02 ?        00:00:00 [kworker/1:2-events]
+root        3806       2  0 13:02 ?        00:00:00 [kworker/7:0-mm_percpu_wq]
+boss        3828    2087  0 13:02 ?        00:00:00 /usr/lib/firefox-esr/firefox
+root        3867       2  0 13:03 ?        00:00:00 [kworker/u33:3-rtw89_tx_wq]
+boss        3883    2087  0 13:03 ?        00:00:00 /usr/lib/firefox-esr/firefox
+root        3921       2  0 13:04 ?        00:00:00 [kworker/3:0-mm_percpu_wq]
+root        3922       2  0 13:04 ?        00:00:00 [kworker/u33:4]
+root        3941       2  0 13:05 ?        00:00:00 [kworker/0:2-events_power_ef
+boss        4025    2087  0 13:05 ?        00:00:00 /usr/lib/firefox-esr/firefox
+root        4049       2  0 13:05 ?        00:00:00 [kworker/4:0-mm_percpu_wq]
+root        4136       2  0 13:07 ?        00:00:00 [kworker/7:1]
+boss        4158    2048 99 13:08 pts/1    00:00:00 ps -ef
+
+
+5)Create 3 files in a directory and redirect sorted output (by timestamp) to a file
+
+boss@boss:~/Documents$ mkdir testdir
+boss@boss:~/Documents$ cd testdir
+boss@boss:~/Documents/testdir$ touch f1.txt
+boss@boss:~/Documents/testdir$ sleep 1
+boss@boss:~/Documents/testdir$ touch f2.txt
+boss@boss:~/Documents/testdir$ sleep 1
+boss@boss:~/Documents/testdir$ touch f3.txt
+boss@boss:~/Documents/testdir$ ls -lt > sorted_list.txt
+boss@boss:~/Documents/testdir$ cat sorted_list.txt
+total 0
+-rw-r--r-- 1 boss boss 0 Feb  9 13:27 sorted_list.txt
+-rw-r--r-- 1 boss boss 0 Feb  9 13:26 f3.txt
+-rw-r--r-- 1 boss boss 0 Feb  9 13:26 f2.txt
+-rw-r--r-- 1 boss boss 0 Feb  9 13:26 f1.txt
+
