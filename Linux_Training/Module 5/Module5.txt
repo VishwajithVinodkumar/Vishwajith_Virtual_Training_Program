@@ -1,0 +1,137 @@
+Name : Vishwajith V
+College : Thiagarajar College of Engineering
+Department : Computer Science And Business Systems
+
+
+Module 5 Assessment
+
+Create a Bash script file_analyzer.sh to demonstrate the following concepts:
+
+Recursive functions
+
+Write a recursive function to search for files in a directory and its subdirectories containing a specific keyword.
+
+Redirection and error handling
+
+Log errors (e.g., invalid arguments, missing files) to errors.log and display them in the terminal.
+
+Here document and here string
+
+Use a here document to display a help menu when the --help option is passed.
+
+Search for a keyword in a specific file using a here string.
+
+Special parameters
+
+Use parameters like $0, $#, $?, and $@ to provide meaningful feedback.
+
+Regular expressions
+
+Validate inputs with regular expressions (Check if the file exists and the keyword is not empty and valid).
+
+Command-line arguments using getopts
+
+Use getopts to handle:
+
+-d <directory>: Directory to search
+
+-k <keyword>: Keyword to search
+
+-f <file>: File to search directly
+
+--help: Display the help menu
+
+Example usage:
+# Recursively search a directory for a keyword
+./file_analyzer.sh -d logs -k error
+
+# Search for a keyword in a file
+./file_analyzer.sh -f script.sh -k TODO
+
+# Display the help menu
+./file_analyzer.sh --help
+
+COMMAND:
+
+boss@boss:~/Documents$ chmod +x file_analyzer.sh
+boss@boss:~/Documents$ ./file_analyzer.sh --help
+Options:
+        -d <directory>: Directory to search
+        -k <keyword>: Keyword to Search
+        -f <file>:  file to search directly
+        --help: Display the help menu.
+Example:
+#Recursively search a directory for keyword
+./file_analyzer.sh -d <directory_name> -k <keyword_to_search>
+#Search for a keyword in a file
+./file_analyzer.sh -f  <file_name> -k <Keyword_to_search>
+#Display the  help menu
+./file_analyzer.sh --help
+
+
+boss@boss:~/Documents$ ./file_analyzer.sh 
+[ERROR] :Invalid Args
+[ERROR] :No Matching Keywords found:(
+[ERROR] :No Matching Keywords found:(
+[ERROR] :Key Shouldnot be Empty --help make use of help to see the details
+
+
+boss@boss:~/Documents$ cat errors.log
+[ERROR] :Invalid Args
+[ERROR] :No Matching Keywords found:(
+[ERROR] :No Matching Keywords found:(
+[ERROR] :Key Shouldnot be Empty --help make use of help to see the details
+
+
+boss@boss:~/Documents$ ./file_analyzer.sh -x test
+./file_analyzer.sh: illegal option -- x
+[ERROR] :Invalid Args
+[ERROR] :No Matching Keywords found:(
+[ERROR] :No Matching Keywords found:(
+[ERROR] :Key Shouldnot be Empty --help make use of help to see the details
+[ERROR] :Invalid Args
+Options:
+        -d <directory>: Directory to search
+        -k <keyword>: Keyword to Search
+        -f <file>:  file to search directly
+        --help: Display the help menu.
+Example:
+#Recursively search a directory for keyword
+./file_analyzer.sh -d <directory_name> -k <keyword_to_search>
+#Search for a keyword in a file
+./file_analyzer.sh -f  <file_name> -k <Keyword_to_search>
+#Display the  help menu
+./file_analyzer.sh --help
+
+
+boss@boss:~/Documents$ ls
+backup_manager.sh  file1.sh          Module1  Module5     test.sh
+dir1               file2.sh          Module2  output.txt  text_extracter.sh
+dir2               file_analyzer.sh  Module3  test2.sh
+errors.log         input.txt         Module4  testdir
+
+
+boss@boss:~/Documents$ ./file_analyzer.sh -d dir1 -k error
+Keywords are valid
+File Name: ./file_analyzer.sh
+No.of Args: 4
+Args: -d dir1 -k error
+PID: 2094
+FileName: dir1/f1.txt, Keywords Not found:(
+FileName: dir1/f2.txt, Keywords Not found:(
+FileName: dir1/f3.txt, Keywords Not found:(
+
+
+boss@boss:~/Documents$ ./file_analyzer.sh -f dir1/filtered_log.txt -k error
+Keywords are valid
+File Name: ./file_analyzer.sh
+No.of Args: 4
+Args: -f dir1/filtered_log.txt -k error
+PID: 2153
+FileName: dir1/filtered_log.txt, Keywords found!:)
+
+FileName: dir1/file_link.txt, Keywords Not found:(
+FileName: dir1/filtered_log.txt, Keywords found!:)
+FileName: dir1/large.txt, Keywords Not found:(
+FileName: dir1/new_config.txt, Keywords Not found:(
+
